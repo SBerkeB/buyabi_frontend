@@ -80,8 +80,7 @@ const ApplicationForm = ({ setFormStep }: ApplicationFormProps) => {
             phone: undefined,
             nationality: '',
             grade: '',
-            department: '',
-            legalNotice: false
+            department: ''
         },
         resolver: yupResolver(applicationSchema),
     });
@@ -103,8 +102,8 @@ const ApplicationForm = ({ setFormStep }: ApplicationFormProps) => {
                 phone: `${data.countryCode}${data.phone}`,
                 recaptchaToken
             }
-
-            const response = await fetch(`${process.env.SITE_URL}/api/membership-application`, {
+            console.log("transformedData");
+            const response = await fetch(`${process.env.SITE_URL}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -291,7 +290,7 @@ const ApplicationForm = ({ setFormStep }: ApplicationFormProps) => {
                         }
                     />
                 </Grid>
-
+{/* 
                 <Grid item xs={12}>
                     <Controller
                         name='legalNotice'
@@ -314,7 +313,7 @@ const ApplicationForm = ({ setFormStep }: ApplicationFormProps) => {
                             </FormControl>
                         }
                     />
-                </Grid>
+                </Grid> */}
 
                 <Grid item xs={12} display="flex" justifyContent="flex-end">
                     <Button type="submit" fullWidth disabled={loading}>

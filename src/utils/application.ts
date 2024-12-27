@@ -33,7 +33,6 @@ const applicationSchema = yup.object().shape({
 
     department: yup.string().trim().required('department-required'),
 
-    legalNotice: yup.boolean().oneOf([true], 'legal-notice-must-be-acceptted').required('legal-notice-required'),
 });
 
 export default applicationSchema;
